@@ -18,5 +18,5 @@ int main(int argc, char *argv[]) {
 	unsigned char buffer[MAX_BUFFER_SIZE];
 	recv_packet(buffer);
 	write_jpegfile(buffer, WIDTH, HEIGHT, 3, jpeg_fd, 100);
-	exit(EXIT_SUCCESS);
+	return 0;
 }
