@@ -46,7 +46,9 @@ void parse_args(int argc, char *argv[]) {
 	}
 	printf("port number validate: SUCCESS\n");
 	int frame_count = atoi(argv[2]);
+	printf("mah\n");
 	printf("parsed frame count: %d\n", frame_count);
+	printf("nah\n");
 	if (frame_count < 1) {
 		fprintf(stderr, "frame count validate: FAILURE\n");
 		fprintf(stderr, "\nABORTING PROGRAM\n");
