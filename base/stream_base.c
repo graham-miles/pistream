@@ -31,9 +31,9 @@ int recv_packet(unsigned char *buffer) {
 }
 
 void parse_args(int argc, char *argv[]) {
-	if (argc != 2) {
+	if (argc != 3) {
 		fprintf(stderr, "invalid number of arguments: %d\n", argc);
-		fprintf(stderr, "usage: %s [port number]\n", argv[0]);
+		fprintf(stderr, "usage: %s [port number] [frame count]\n", argv[0]);
 		fprintf(stderr, "\nABORTING PROGRAM\n");
 		exit(EXIT_FAILURE);
 	}
@@ -45,6 +45,14 @@ void parse_args(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 	printf("port number validate: SUCCESS\n");
+	int frame_count = atoi(argv[2]);
+	printf("parsed frame count: %d\n", frame_count);
+	if (frame_count < 1) {
+		fprintf(stderr, "frame count validate: FAILURE\n");
+		fprintf(stderr, "\nABORTING PROGRAM\n");
+		exit(EXIT_FAILURE);
+	}
+	printf("frame count validate: SUCCESS\n");
 }
 
 void connect_to_client() {

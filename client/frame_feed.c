@@ -149,10 +149,12 @@ int main(int argc, char *argv[])
         sleep(1);
         system(RM_IMG);
         printf("SUCCESS\n");
-        get_frame();
         parse_args(argc, argv);
         connect_to_base();
-        send_packet(toret);
+        while (1) {
+            get_frame();
+            send_packet(toret);
+        }
         return 0;
 }
 
