@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     }
 	parse_args(argc, argv);	
 	connect_to_client();
-	unsigned char buffer[argv[2]][MAX_BUFFER_SIZE];
+	unsigned char buffer[atoi(argv[2])][MAX_BUFFER_SIZE];
 	int i = 0;
 	while (1) {
 		int numread = recv_packet(buffer[i]);
