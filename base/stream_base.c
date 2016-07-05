@@ -11,6 +11,7 @@ int conn_sockfd, sockfd, port, client_len;
 struct sockaddr_in addr_base, addr_client;
 
 int recv_packet(unsigned char *buffer) {
+	bzero(buffer, MAX_BUFFER_SIZE);
 	size_t rec = 0;
 	do {
 		size_t numread = read(conn_sockfd, &buffer[rec], MAX_BUFFER_SIZE - rec);
