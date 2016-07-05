@@ -7,12 +7,6 @@
 FILE *jpeg_fd;
 
 int main(int argc, char *argv[]) {
-	jpeg_fd  = fopen("frame.jpg", "wb");
-    if (jpeg_fd == NULL) {
-        fprintf(stderr, "could not open output file\n");
-        fprintf(stderr, "\nABORTING PROGRAM\n");
-        exit(EXIT_FAILURE);
-    }
 	parse_args(argc, argv);	
 	connect_to_client();
 	unsigned char buffer[atoi(argv[2])][MAX_BUFFER_SIZE];
@@ -21,9 +15,13 @@ int main(int argc, char *argv[]) {
 		int numread = recv_packet(buffer[i]);
 		if (numread > 0) {
 			char * pic;
+			printf("mah0\n");
 			sprintf(pic, "frame%d.jpg", i);
+			printf("mah1\n");
 			jpeg_fd = fopen(pic, "wb");
+			printf("mah2\n");
 			write_jpegfile(buffer[i], WIDTH, HEIGHT, 3, jpeg_fd, 100);
+			printf("mah3\n");
 			i++;
 		}
 	}
