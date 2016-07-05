@@ -14,7 +14,7 @@ char *hostname, *port;
 struct sockaddr_in addr_base, addr_client;
 
 int send_packet(unsigned char *data) {
-        int size = strlen(data);
+        int size = MAX_BUFFER_SIZE;
         printf("attempting to send packet of size: %d\n", size);
         if (size < 1) {
                 printf("send packet terminated; null data\n");
