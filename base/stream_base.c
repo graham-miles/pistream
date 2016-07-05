@@ -45,6 +45,7 @@ void parse_args(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 	printf("port number validate: SUCCESS\n");
+	printf("strang: %s\n", argv[2]);
 	int frame_count = atoi(argv[2]);
 	printf("mah\n");
 	printf("parsed frame count: %d\n", frame_count);
