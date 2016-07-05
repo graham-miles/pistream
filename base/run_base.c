@@ -15,13 +15,13 @@ int main(int argc, char *argv[]) {
     }
 	parse_args(argc, argv);	
 	connect_to_client();
-	unsigned char buffer[arv[2]][MAX_BUFFER_SIZE];
+	unsigned char buffer[argv[2]][MAX_BUFFER_SIZE];
 	int i = 0;
 	while (1) {
 		int numread = recv_packet(buffer[i]);
 		if (numread > 0) {
 			char * pic;
-			fprintf(pic, "frame%d.jpg", i);
+			sprintf(pic, "frame%d.jpg", i);
 			jpeg_fd = fopen(pic, "wb");
 			write_jpegfile(buffer[i], WIDTH, HEIGHT, 3, jpeg_fd, 100);
 			i++;
