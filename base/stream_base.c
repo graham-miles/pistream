@@ -31,7 +31,7 @@ int recv_packet(unsigned char *buffer) {
 }
 
 void parse_args(int argc, char *argv[]) {
-	if (argc != 3) {
+	if (argc != 2) {
 		fprintf(stderr, "invalid number of arguments: %d\n", argc);
 		fprintf(stderr, "usage: %s [port number] [frame count]\n", argv[0]);
 		fprintf(stderr, "\nABORTING PROGRAM\n");
