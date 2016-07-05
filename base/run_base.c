@@ -14,9 +14,9 @@ int main(int argc, char *argv[]) {
 	while (1) {
 		int numread = recv_packet(buffer[i]);
 		if (numread > 0) {
-			char * pic;
+			char pic[128];
 			printf("mah0\n");
-			sprintf(pic, "frame%d.jpg", i);
+			sprintf(pic, "./frame%02d.jpg", i);
 			printf("mah1\n");
 			jpeg_fd = fopen(pic, "wb");
 			printf("mah2\n");
